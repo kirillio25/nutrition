@@ -1,3 +1,18 @@
+<?php
+require_once 'config/bd.php';
+
+use Config\Database;
+
+// Получаем экземпляр подключения
+$db = Database::getInstance();
+
+// Получаем объект PDO
+$connection = $db->getConnection();
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +23,6 @@
     <title>Document</title>
 </head>
 <body>
-grgreg1
+
 </body>
 </html>
