@@ -1,28 +1,13 @@
 <?php
-require_once 'config/bd.php';
+session_start();
 
-use Config\Database;
-
-// Получаем экземпляр подключения
-$db = Database::getInstance();
-
-// Получаем объект PDO
-$connection = $db->getConnection();
-
-
-?>
-
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>
+// Проверяем, авторизован ли пользователь
+if (isset($_SESSION['user_id'])) {
+    // Если пользователь авторизован, перенаправляем на dashboard.php
+    header('Location: dashboard.php');
+    exit;
+} else {
+    // Если не авторизован, перенаправляем на login.php
+    header('Location: login.html');
+    exit;
+}
